@@ -1,0 +1,71 @@
+{% extends "master.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container-fluid mt-4 mb-4">
+    <div class="row justify-content-center">
+        <div class="col w-100" style="max-width: 1000px;">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <center>
+                        <div class="mx-2">
+                            <h2>{{ app.config["APPLICATION_NAME"] }} Setup: Step {{ setup_step + 1 }} / {{ len(setup_steps) }}</h2>
+                            <h4>{{ list(setup_steps.keys())[setup_step] }}</h4>                        
+                        </div>
+                    </center>
+                    <div class="d-flex justify-content-center">
+                        <div class="w-100 mx-4">
+                            {% if not setup_step == 0 %}
+                            <form method="POST" class="table_button_form" style="float:left;" action="{{url_for('user.setup')}}">
+                                <input type="hidden" name="action" value="previous">
+                                <button type="submit" class="btn btn-primary text-large">
+                                    &larr;&nbsp;Previous Step
+                                </button>
+                            </form>
+                            {% else %}
+                            <div inert>
+                                <form method="POST" class="table_button_form" style="float:left;" action="{{url_for('user.setup')}}">
+                                    <input type="hidden" name="action" value="previous">
+                                    <button type="submit" class="btn btn-secondary text-large">
+                                        &larr;&nbsp;Previous Step
+                                    </button>
+                                </form>
+                            </div>
+                            {% endif %}
+
+                            {% if not setup_step == len(setup_steps) - 1 %}
+                            <form method="POST" class="table_button_form" style="float:right;" action="{{url_for('user.setup')}}">
+                                <input type="hidden" name="action" value="next">
+                                <button type="submit" class="btn btn-primary text-large">
+                                    Next Step&nbsp;&rarr;
+                                </button>
+                            </form>
+                            {% else %}
+                            <form method="POST" class="table_button_form" style="float:right;" action="{{url_for('user.setup')}}">
+                                <input type="hidden" name="action" value="next">
+                                <button type="submit" class="btn btn-primary text-large">
+                                    Complete Setup&nbsp;&rarr;
+                                </button>
+                            </form>
+                            {% endif %}
+
+        
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+
+                </style>
+                
+
+                <div class="card-body m-0 p-0">
+                    <div class="setup_form">
+                        <div id="setup_frame_dynamiciframe" class="bg-transparent m-0 p-0" style="line-height:0px;" data-value='{{url_for(form_endpoint)}}'></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

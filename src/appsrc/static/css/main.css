@@ -1,0 +1,363 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}
+
+/* Custom in-table buttons and forms */
+.buttons-html5 {
+    margin-top: 0px;
+    float: right;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    color: gray;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+
+.table_button {
+    padding: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: small;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.table_button_form {
+    width: fit-content;
+    float: right;
+}
+
+/* jsDataTables overrides */
+.dt-no-padding {
+    padding: 1px !important;
+}
+th.dt-no-padding {
+    padding: 0px !important;
+}
+.dt-length {
+    float: left;
+}
+.dt-search {
+    float: left;
+}
+div.dt-container .dt-search input {
+    padding: 2px;
+}
+div.dt-container select.dt-input {
+    padding: 2px;
+    margin-top: 1px;
+}
+
+table {
+    --bs-table-bg: transparent !important;
+}
+
+.table {
+    text-align: left;
+    --bs-table-border-color: #cccccccc;
+}
+
+table.dataTable td.dt-type-date {
+    text-align: left;
+}
+table.dataTable th.dt-type-date {
+    text-align: left;
+}
+
+table.dataTable>thead>tr>th {
+    margin: 0px;
+    padding: 0px;
+}
+
+.dataTables_wrapper .dataTables_scrollHead th {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+div.dt-buttons>.dt-button:first-child, div.dt-buttons>.dt-button, div.dt-buttons>div.dt-button-split .dt-button, div.dt-container .dt-paging .dt-paging-button{
+    margin-top: 0px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+div.dt-buttons {
+    display: inline-block;
+    float: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Custom search bars at the top of each data table */
+.column-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding:0px;
+    border:none;
+    outline:none;
+    font-weight: bold;
+    border-left: 2px solid #cccccc34;
+    border-right: 0px solid #cccccc34;
+    border-bottom: 2px solid #cccccc34;
+    display: block;
+    font-size: small;
+}
+
+
+/* Dark-themed dropdown */
+.dropdown-menu {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-color: darkgray;
+    border-top-color: transparent;
+    padding: 0px;
+    border: 0px;
+    margin-top: 0px !important; /* can't override bootswatch without this */
+}
+
+.dropdown-menu.bg-dark .dropdown-item {
+    color: #ffffff;
+}
+
+.dropdown-menu.bg-dark .dropdown-item:hover,
+.dropdown-menu.bg-dark .dropdown-item:focus {
+    background-color: #5b6269;
+    color: #ffffff;
+}
+
+
+/* Expanding accordian chevron transition */
+.bi-chevron-down.flip {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; 
+}
+
+.collapsing .bi-chevron-down {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.card, .hard-shadow {
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.2), 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Registration and data entry cards */
+.card-padding {
+    padding: 0px;
+}
+
+.card-title-body {
+    float: left;
+}
+
+.card-header-block-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 60px;
+    grid-row-gap: 0px;
+    justify-content: center;
+}
+
+.card-header-block {
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 992px) {
+    .card-header-block-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Multi-part search bars */
+.search_bar_start, .search_bar_middle, .search_bar_end {
+    border: 1px solid gray;
+    height: 35px;
+    max-height: 35px;
+    min-height: 35px;
+}
+.search_bar_start {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+.search_bar_middle {
+    border-radius: 0px;
+}
+.search_bar_end {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-color: transparent;
+}
+
+/* Used by py function make_bi_button to make icon-buttons */
+.big-icon {
+    font-size: 24px;
+    height: 24px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Flashed Flask alerts */
+.alert {
+    opacity: 90%;
+}
+
+.alert-container {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    z-index: 9999; /* Force on top */
+}
+
+.alert-close {
+    padding: 0px;
+    outline: 0px;
+    border: 0px;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+/* Shop Tiles */
+.tileCanvas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    height: 100vh;
+}
+
+.tile {
+    box-sizing: border-box;
+    width: calc(33.333% - 32px); 
+    max-width: 350px;
+    max-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s;
+}
+
+.tile:hover {
+    transform: translateY(-8px);
+}
+
+.tile h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-weight: bold;
+}
+
+.tile i {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+
+.tile img {
+    display: block;
+    margin: 0 auto 12px;
+    border-radius: 4px;
+}
+
+.tile p {
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+    .tile {
+        width: calc(50% - 16px); /* 2 tiles/row */
+    }
+}
+
+@media (max-width: 480px) {
+    .tile {
+        width: 100%; /* 1 tile/row */
+    }
+}
+
+/* Dynamically loaded iframes */
+#tabs {
+    display: flex;
+    padding: 10px;
+}
+
+#tabs a {
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    background-color: #f2f2f2;
+}
+
+#tabs a:hover {
+    background-color: #ddd;
+}
+
+.tabcontent {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+}
+
+.tab-pane {width: 100%; height: 100%;}
+.iframeContainerShell { width: 100%; height: 100%;}
+.iframeContainer {display: flex; width: 100%; height: calc(100vh - 235px); flex-direction: column; overflow: hidden;}
+.iframeContainerSearch {display: flex; width: 100%; height: calc(100vh - 110px); flex-direction: column; overflow: hidden;}
+.iframeFill { flex-grow: 1; border: none; margin: 0; padding: 0; }
+
+/* ### MISC ### */
+/* Zoom Icon */
+.zoom-button {
+    padding: 0px;
+    border-color: transparent;
+    outline-color: transparent;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+}
+
+.navbar {
+    margin: 0px;
+    padding: 0px 0px;
+    border-bottom-color: transparent; /* fixes theme mis-matching */
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.hover_tooltip {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    font-size: medium;
+    top: -1pt;
+    position: relative;
+}

@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}{{app.config["APPLICATION_NAME"]}} Search Results{% endblock %}
+
+{% block content %}
+  <div class="iframeContainerShell">
+    <div class="iframeContainerSearch">
+        <iframe id="contentIframe" class="iframeFill" src="{{ endpoint }}" frameborder="0"></iframe>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script> // This causes links clicked in the iframe to cause the main page to redirect
+var iframe = document.getElementById("contentIframe");
+iframe.addEventListener('load', function () {
+    var links = iframe.contentDocument.querySelectorAll('a');
+    links.forEach(function (link) {
+      link.setAttribute('target', '_top');
+    });
+});
+</script>
+{% endblock %}

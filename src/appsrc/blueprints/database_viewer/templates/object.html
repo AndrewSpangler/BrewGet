@@ -1,0 +1,39 @@
+{% extends "master.html" %}
+
+{% block title %}Object:{{ database }}::{{ table }}::{{ object.id }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card mt-4 mb-4">
+
+        <div class="card-header bg-dark text-white">
+            <div class="card-title-body">
+                <h2 class="card-title">Object:<a href="{{ url_for('database_viewer.view', database=database) }}">{{ database }}</a>::<a href="{{ url_for('database_viewer.view', database=database, table=table) }}">{{ table }}</a>::<a href="{{ url_for('database_viewer.view', database=database, table=table, id=object.id) }}">{{ object.id }}</a></h2>
+                <a href="{{url_for('database_viewer.view')}}">Back to databases</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped" id="databases_table" width="100%">
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for column, value in object.__dict__.items() %}
+                    {% if not column.startswith('_') %}
+                    <tr>
+                        <th><b>{{ column }}</b></th>
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

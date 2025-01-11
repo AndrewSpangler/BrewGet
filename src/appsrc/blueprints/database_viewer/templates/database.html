@@ -1,0 +1,22 @@
+{% extends "master.html" %}
+
+{% block title %}DB:{{ database }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mt-4 mb-4">
+
+        <div class="card-header bg-dark text-white">
+            <div class="card-title-body">
+                <h2 class="card-title">DB:<a href="{{url_for('database_viewer.view', database=database)}}">{{ database }}</a></h2>
+                <a href="{{url_for('database_viewer.view')}}">Back to databases</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            {% include "includes/database_table.html" %}
+        </div>
+
+    </div>    
+</div>
+{% endblock %}

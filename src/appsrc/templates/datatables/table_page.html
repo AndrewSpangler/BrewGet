@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-4">
+  <div class="card mt-4">
+
+    <div class="card-header bg-dark text-white">
+      <div class="card-title-body">
+        <h2 class="card-title">{{ title }}</h2>
+      </div>
+
+      {% if header_elements %}
+      <div style="float: right;">
+        {% autoescape false %}{% for elm in header_elements %}{{ elm }}{% endfor %}{% endautoescape %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="card-body">
+      {% if body_elements %}
+        {% autoescape false %}
+        {% for elm in body_elements %}
+        {{ elm }}{% endfor %}
+        {% endautoescape %}
+      {% endif %}
+
+      {% autoescape false %}{{ table }}{% endautoescape %}
+    </div>
+  </div>
+</div>
+{% endblock %}

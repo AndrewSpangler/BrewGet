@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+
+{% block title %}Table:{{ database }}::{{ table }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card mt-4 mb-4">
+
+        <div class="card-header bg-dark text-white">
+            <div class="card-title-body">
+                <h2 class="card-title">Table:<a href="{{url_for('database_viewer.view', database=database)}}">{{ database }}</a>::<a href="{{url_for('database_viewer.view', database=database, table=table)}}">{{ table }}</a></h2>
+                <a href="{{url_for('database_viewer.view')}}">Back to databases</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            {% set query_arg = "q" %}
+            {% set button_text = "Search" %}
+            {% set placeholder_text = "Search Table" %}
+            {% set search_query = query %}
+            {% set endpoint = url_for("database_viewer.view", database=database, table=table) %}
+            {% include "includes/search_bar.html" %}
+            <hr>
+            {% include "includes/table_table.html" %}
+        </div>
+
+    </div>    
+</div>
+{% endblock %}

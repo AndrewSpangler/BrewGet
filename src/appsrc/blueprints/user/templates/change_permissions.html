@@ -1,0 +1,17 @@
+{% extends "form_card.html" %}
+
+{% block title %}Change Permissions{% endblock %}
+
+{% block card_content %}
+<h1 class="card-title text-center mb-4">Change Permissions</h1>
+<h4>{{ user.email }}</h4>
+<form method="POST" action="{{ url_for('user.edit_user_permissions', user_id=user.id) }}" autocomplete="on">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.permission.label(class="form-label") }}
+        {{ form.permission(class="form-control") }}
+    </div>
+    <br>
+    {{ form.submit(class="btn btn-primary btn-block w-100 mt-4") }}
+</form>
+{% endblock %}

@@ -1,0 +1,9 @@
+<form method="POST" class="table_button_form" style="float:{{float}};" 
+    action="{{url_for(*url_args, **url_kwargs)}}"
+{% if on_submit %}
+    onsubmit="return confirm('{{on_submit}}');"
+{% endif %}
+>
+    <button type="submit" class="btn btn-{{btn_type}} table_button {{' '.join(classes)}}">{{text}}
+    </button>
+</form>

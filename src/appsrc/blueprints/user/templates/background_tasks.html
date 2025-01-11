@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+{% block title %}Background Tasks{% endblock %}
+{% block content %}
+{% autoescape false %}
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header bg-dark text-white">
+            <div class="card-title-body">
+                <h2 class="card-title">Background Tasks</h2>
+            </div>
+        </div>
+
+        <div class="card-body">          
+            {{ table }}
+        </div>
+
+    </div>    
+</div>
+{% endautoescape %}
+{% endblock %}

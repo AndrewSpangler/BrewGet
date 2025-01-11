@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+
+{% block title %}Databases{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card mt-4 mb-4">
+
+        <div class="card-header bg-dark text-white">
+            <div class="card-title-body">
+                <h2 class="card-title">Databases</a></h2>
+            </div>
+        </div>
+
+        <div class="card-body">
+            {% include "includes/databases_table.html" %}
+        </div>
+
+    </div>    
+</div>
+{% endblock %}
